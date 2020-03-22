@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package calculator;
+
+service CalculatorService {
+  rpc Calcular (Entrada) returns (Saida) {}
+}
+
+message Entrada {
+  int32 valor = 1;
+}
+
+message Saida {
+  int32 valorAnterior = 1;
+  int32 valorPosterior = 2;
+}

@@ -1,0 +1,64 @@
+{
+  "name": "ms-grpc",
+  "version": "0.0.1",
+  "description": "",
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "format": "prettier --write \"**/*.ts\"",
+    "start": "ts-node  -r tsconfig-paths/register src/main.ts",
+    "start:inspect": "node --trace_gc --max-old-space-size=256 --max-semi-space-size=1 --inspect=0.0.0.0:9229 dist/main.js",
+    "start:dev": "nodemon",
+    "prestart:prod": "rm -rf dist && tsc",
+    "start:prod": "node dist/main.js",
+    "test": "jest",
+    "test:cov": "jest --coverage",
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "prepublishOnly": "rm -rf dist && tsc && ts-node copyStaticAssets.ts",
+    "lint": "tslint -c tslint.json 'src/**/*.ts' -e 'node_modules/**/*.ts' -t json -o ${LINT_JSON_OUTPUT}"
+  },
+  "dependencies": {
+    "@grpc/proto-loader": "^0.5.3",
+    "@nestjs/common": "5.2.2",
+    "@nestjs/core": "5.2.2",
+    "@nestjs/microservices": "5.2.2",
+    "@nestjs/testing": "5.2.2",
+    "@nestjs/websockets": "5.2.2",
+    "grpc": "1.24.0",
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "^3.0.0",
+    "rxjs": "^6.5.3"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^6.9.0",
+    "@nestjs/schematics": "^6.7.0",
+    "@nestjs/testing": "^6.7.1",
+    "@types/express": "^4.17.1",
+    "@types/jest": "^24.0.18",
+    "@types/node": "^12.7.5",
+    "@types/supertest": "^2.0.8",
+    "jest": "^24.9.0",
+    "prettier": "^1.18.2",
+    "supertest": "^4.0.2",
+    "ts-jest": "^24.1.0",
+    "ts-loader": "^6.1.1",
+    "ts-node": "^8.4.1",
+    "tsconfig-paths": "^3.9.0",
+    "tslint": "^5.20.0",
+    "typescript": "^3.6.3"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  }
+}
