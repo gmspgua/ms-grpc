@@ -20,7 +20,7 @@
   "dependencies": {
     "@grpc/proto-loader": "^0.5.3",
     "@nestjs/common": "5.2.2",
-    "@nestjs/core": "5.2.2",
+    "@nestjs/core": "9.2.1",
     "@nestjs/microservices": "5.2.2",
     "@nestjs/testing": "5.2.2",
     "@nestjs/websockets": "5.2.2",
